@@ -12,8 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Mencegah link tidak sengaja (jika ada)
         if(e) e.preventDefault();
 
-    // 1. Mainkan Suara Efek
-    function mngaum(e) {
+        // 1. Mainkan Suara
         sound.currentTime = 0;
         const playPromise = sound.play();
 
@@ -26,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Efek Visual
+        // 2. Efek Visual
         const target = e.currentTarget;
         target.classList.add('active');
         setTimeout(() => {
@@ -35,50 +34,44 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1000);
     }
 
-    // Pasang event listener jika tombol ada
+    // Pasang event listener jika tombol ada di halaman tersebut
     if (btn1 && btn2) {
         btn1.addEventListener('click', mngaum);
         btn2.addEventListener('click', mngaum);
-        btn1.addEventListener('touchstart', () => {}, { passive: true });
-        btn2.addEventListener('touchstart', () => {}, { passive: true });
+        
+        // Tambahan untuk mobile agar lebih responsif
+        btn1.addEventListener('touchstart', () => {}, {passive: true});
+        btn2.addEventListener('touchstart', () => {}, {passive: true});
     }
-
-    // 2. Logika Gambar Berubah Warna
+    
+    // 1. Logika Gambar Berubah Warna
     const images = document.querySelectorAll('.interactive-img');
+    
     images.forEach(img => {
         img.addEventListener('click', () => {
+            // Toggle kelas 'reveal' untuk mengubah grayscale jadi warna
             img.classList.toggle('reveal');
         });
     });
 
-    // 3. Tombol Play/Pause Musik
-    const playBtn = document.getElementById('playBtn');
-    const albumCover = document.getElementById('albumcover'); // if needed
-
+    const playBtn = document.getElementById('playBtn','albumcover');
     if (playBtn) {
         const music = new Audio("assets/Sekarang%20Hingga%20Nanti%20Kita%20Tua%20-%20Dimas%20M.mp3");
         let isPlaying = false;
 
-        // Update state when audio actually plays/pauses
-        music.addEventListener('play', () => {
-            isPlaying = true;
-            playBtn.textContent = "❚❚";
-        });
-
-        music.addEventListener('pause', () => {
-            isPlaying = false;
-            playBtn.textContent = "▶";
-        });
-
         playBtn.addEventListener('click', () => {
             if (!isPlaying) {
-                music.play().catch(err => console.error("Playback failed:", err));
+                music.play();
+                playBtn.textContent = "❚❚";
             } else {
                 music.pause();
+                playBtn.textContent = "▶";
             }
+            isPlaying = !isPlaying;
         });
     }
 });
+
     /* --- LOGIKA GAME SUIT --- */
     let skorAku = 0;
     let skorKamu = 0;
@@ -257,7 +250,4 @@ function cekTebakan() {
         msg.innerText = "Kegedean ay..";
         msg.style.color = "var(--accent)";
     }
-
 }
-
-
