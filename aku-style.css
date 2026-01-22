@@ -1,0 +1,118 @@
+/* style.css */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Merriweather:wght@300;400;700&display=swap');
+
+:root {
+    --bg-paper: #f4f1ea;
+    --text-ink: #2f2f2f;
+    --accent: #8b0000; /* Merah tua untuk link */
+    --border-color: #2f2f2f;
+}
+
+body {
+    background-color: var(--bg-paper);
+    color: var(--text-ink);
+    font-family: 'Merriweather', serif;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+/* Header Koran */
+header {
+    text-align: center;
+    border-bottom: 3px double var(--border-color);
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+
+h1.masthead {
+    font-family: 'Playfair Display', serif;
+    font-size: 7rem;
+    text-transform: uppercase;
+    margin: 10px 0;
+    letter-spacing: 2px;
+}
+
+.date-line {
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 5px 0;
+    font-style: italic;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Layout Kolom Koran */
+.newspaper-content {
+    column-count: 3;
+    column-gap: 40px;
+    column-rule: 1px solid #ccc;
+    text-align: justify;
+}
+
+@media (max-width: 768px) {
+    .newspaper-content {
+        column-count: 1;
+    }
+    h1.masthead {
+        font-size: 2rem;
+    }
+}
+
+/* Typography */
+h2 {
+    font-family: 'Playfair Display', serif;
+    margin-top: 0;
+    border-bottom: 2px solid var(--text-ink);
+}
+
+.drop-cap {
+    float: left;
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    line-height: 0.8;
+    margin-right: 8px;
+    font-weight: bold;
+}
+
+/* Link Interaktif (Kata Tersebar) */
+a.story-link {
+    color: var(--text-ink);
+    text-decoration: underline;
+    font-weight: bolder ;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+a.story-link:hover {
+    color: var(--accent);
+    background-color: rgba(0,0,0,0.05);
+}
+
+/* Gambar & Efek Warna */
+figure {
+    margin: 20px 0;
+    break-inside: avoid;
+    text-align: center;
+}
+
+img.interactive-img {
+    width: 100%;
+    height: auto;
+    filter: grayscale(100%) sepia(20%); /* Efek Koran Lama */
+    transition: filter 0.8s ease;
+    cursor: pointer;
+    border: 1px solid #000;
+}
+
+/* Kelas ini ditambahkan lewat JS saat diklik */
+img.interactive-img.reveal {
+    filter: grayscale(0%) sepia(0%);
+}
+
+figcaption {
+    font-size: 0.8rem;
+    font-style: italic;
+    margin-top: 5px;
+}

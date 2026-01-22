@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kita & Cerita - The Love Chronicle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1 class="masthead">Dunia Kita</h1>
+        <div class="date-line">
+            <a href="main.html" class="story-link">← Kembali ke Halaman Depan</a>
+        </div>
+    </header>
+
+    <main class="newspaper-content">
+        <article>
+            <h2>Soundtrack Kita</h2>
+            <p>Ada lagu yang selalu mengingatkan pada momen itu.</p>
+            
+            <div class="vinyl-player">
+                <img alt="Album Cover" class="albumcover" draggable="false" style="width: 100px; height: 100px;border-radius: 10px;" src="https://s.mxmcdn.net/images-storage/albums2/1/6/8/7/7/7/81777861_350_350.jpg">
+                <h3>Sekarang Hingga Nanti Kita Tua</h3>
+                <p>Dimas M</p>
+                <div class="controls">
+                    <button style="font-size: 2rem;">⏮</button>
+                    <button style="font-size: 2rem; filter:saturate(0%);" id="playBtn">▶</button>
+                    <button style="font-size: 2rem;">⏭</button> 
+                </div>
+            </div>
+            <p>Musik memainkan peran penting dalam setiap perjalanan cinta.</p>
+        </article>
+
+        <article style="break-inside: avoid;">
+    <h2>Halaman Hiburan</h2>
+    
+    <div class="game-menu">
+        <button class="tab-btn active" onclick="gantiGame('suit', this)">Suit</button>
+        <button class="tab-btn" onclick="gantiGame('cari', this)">Cari Kata</button>
+        <button class="tab-btn" onclick="gantiGame('tebak', this)">Tebak</button>
+    </div>
+
+    <div id="game-suit" class="game-content">
+        <div class="suit-game-container">
+            <div class="score-board">
+                <div style="flex:1; text-align:center;"><small>Aida</small><br><span id="skorAku">0</span></div>
+                <div style="flex:1; text-align:center;"><small>Bani</small><br><span id="skorKamu">0</span></div>
+            </div>
+            <div class="suit-display" style="display:flex; justify-content:center; gap:15px; font-size:2.5rem; margin:10px 0;">
+                <span id="tanganAku">❓</span><span>vs</span><span id="tanganLawan">❓</span>
+            </div>
+            <p id="hasilSuit" style="font-weight:bold; margin-bottom:10px;">Pilih senjatamu:</p>
+            <div class="suit-controls">
+                <button class="btn-suit" onclick="mainSuit('batu')">✊</button>
+                <button class="btn-suit" onclick="mainSuit('gunting')">✌️</button>
+                <button class="btn-suit" onclick="mainSuit('kertas')">✋</button>
+                
+            </div>
+        </div>
+    </div>
+
+    <div id="game-cari" class="game-content" style="display: none;">
+        <p id="wordInstruction" style="font-size:0.8rem; text-align:center; font-style:italic;">
+            <b>Coba ay cari kata dari pertanyaan ini!</b>
+        </p>
+        <button style="background-color: var(--bg-paper);color: var(--text-ink);border-radius: 10px;font-family: 'Playfair Display', serif;font-weight: bold;" onclick="openWordSearch()">Cari Kata</button>
+        <div class="word-search-container" id="wordSearchGrid"></div>
+
+        <p id="wordMsg" style="font-style:italic; font-size:0.8rem;"></p>
+        
+        <button class="btn-newspaper" onclick="resetWordSearch()"
+            style="font-size:0.7rem; padding:5px 10px;">
+            Reset Grid
+        </button>
+    </div>
+
+    <div id="game-tebak" class="game-content" style="display: none;">
+        <p style="font-size:0.8rem; font-weight: bolder; justify-self: center;">Coba tebak aku mikirin angka berapa dari 1-20?</p>
+        <div class="suit-game-container guess-container">
+            <input type="number" id="inputAngka" placeholder="?">
+            <button class="btn-newspaper" onclick="cekTebakan()" style="margin-top:10px;">Cek</button>
+            <p id="msgTebak" style="margin-top:10px; font-weight:bold; font-style:italic;">...</p>
+        </div>
+    </div>
+</article>
+        <article>  
+
+        </article>
+        <article>
+            <h2 style="font-size: 2rem; font-weight: bolder;">Perjalanan Waktu</h2>
+            <h2>Pertemuan Dua Kutub: Sang Pemberontak dan Cahaya Muslimah</h2>
+            <p>Dunia sering kali menyajikan cerita yang tidak masuk akal, seperti menyatukan dua garis yang seharusnya tidak pernah berpotongan. Di satu sisi, ada kamu—seorang perempuan yang menjadi representasi ketenangan, taat pada agama, mandiri, dan selalu memancarkan aura lembut dalam balutan busana Muslimah. Senyummu bukan sekadar lengkungan bibir, melainkan sebuah simfoni yang mampu menenangkan kegaduhan. Sementara di sisi lain, berdiri aku; sosok yang mungkin terlihat sebagai antitesis dari duniamu. Aku yang rebel, yang lebih akrab dengan pakaian hitam dan kehidupan yang jauh dari kata alim, namun memiliki satu harapan yang tidak pernah main-main: ketulusan dan kesabaran yang tak berujung untukmu.</p>
+            <figure>
+                <img src="/assets/kita2.JPG" class="interactive-img">
+            </figure>
+            <h2>Desember 2025: Dari Layar Telegram Menuju Alun-Alun Serang</h2>
+            <p>Semua ini bermula pada tanggal 19 Desember 2025, ketika ruang obrolan di Telegram menjadi saksi awal mula kita bertukar kata. Selama dua belas hari, kita hanya mengenal melalui teks, hingga akhirnya takdir menentukan titik temunya pada 31 Desember 2025. Di bawah langit Alun-Alun Serang, tepat di depan kedai MOMOYO Ice Cream samping Ramayana Mall, waktu seolah berhenti berdetak. Saat mata kita saling bertatapan untuk pertama kalinya, tidak ada keraguan, yang ada hanyalah ledakan kebahagiaan yang amat sangat luar biasa. Detik itu juga, aku merasakan sebuah momen "klik"—sebuah kesadaran instan bahwa aku telah menemukan rumah yang selama ini kucari dalam sosokmu.</p>
+
+            <h2>Ritual Suara dan Simbol Kecil dalam Hubungan</h2>
+            <p>Meskipun hubungan kita masih seumur jagung, kita telah membangun rutinitas yang menjadi nyawa bagi hari-hari kita. Video call sebelum tidur dan sesaat setelah bangun menjadi jembatan yang menghubungkan jarak, memastikan bahwa wajahmu adalah hal terakhir yang kulihat sebelum memejamkan mata dan hal pertama yang kulihat saat menyambut pagi. Ada kehangatan yang tak tergantikan dalam setiap obrolan kita. Selain itu, ada dua benda kecil yang menjadi saksi bisu perjalanan ini: sepasang gantungan kunci DINO. Milikku yang biru dan milikmu yang pink, yang jika dipencet akan mengeluarkan suara "rawrr" yang menggemaskan—sebuah simbol kecil bahwa di tengah perbedaan besar kita, selalu ada sisi jenaka yang menyatukan kita. Sambil diiringi lagu "Sekarang Hingga Nanti Kita Tua" dari Dimas M, kita perlahan mulai merajut mimpi.</p>
+            <div class="dino-container">
+                <span class="dino-title">Pencet gambar DINO nya ay</span>
+            
+                <div class="dino-row">
+                    <button type="button" class="dino-widget" id="btnDino1">
+                        <img style="filter: hue-rotate(120deg);" class="dino-icon" src="/assets/dino.png">
+                        <span class="dino-label">BlueRex</span>
+                    </button>
+                    <span class="dino-love">💕</span>
+                    <button type="button" class="dino-widget" id="btnDino2">
+                        <img style="filter: hue-rotate(220deg);" class="dino-icon" src="/assets/dino.png">
+                        <span class="dino-label">PinkyRex</span>
+                    </button>
+                </div>
+            </div>
+
+
+            <audio id="audioDino">
+                <source src="/assets/angry.mp3" type="audio/mp3">
+            </audio>
+            <p id="statusAudio" style="font-size: 0.7rem; text-align: center; color: var(--accent);"></p>
+            <h2>Badai yang Menguji Kesungguhan Hati</h2>
+            <p>Namun, perjalanan ini tidak selamanya mulus seperti jalanan aspal yang baru diperbaiki. Aku pernah dihadapkan pada kenyataan pahit tentang masa lalumu; tentang kebutuhan akan validasi eksternal dari pria lain yang ternyata sempat terbawa saat kita sudah bersama. Keadaan menjadi semakin rumit karena kamu di pondok tidak ada kamu yang menenangkanku. Jarak dan aturan pondok membuat kita tidak bisa menyelesaikan konflik ini secara instan dengan komunikasi. Ada luka, ada kecewa, dan ada amarah yang sempat membuncah. Mengetahui bahwa kamu masih mencari pengakuan dari orang lain di saat aku sudah memberikan seluruh duniaku adalah ujian terberat yang pernah kualami dalam hubungan ini.</p>
+
+            <h2>Titik Balik: Memilih Bertahan demi Masa Depan</h2>
+            <p>Di tengah badai tersebut, aku memilih untuk melakukan sesuatu yang mungkin dianggap gila oleh orang lain: aku memilih untuk bertahan. Keputusanku bukan didasari oleh kelemahan, melainkan oleh pandangan jauh ke depan. Aku berpikir, jika kelak kita menikah dan memiliki anak, kita tidak boleh dengan enteng memilih perceraian hanya karena sebuah kesalahan. Aku ingin mempersiapkan fondasi yang kuat sejak sekarang. Aku memilih untuk memberimu kesempatan agar kamu bisa berubah dan menyadari bahwa validasi terbaik adalah yang datang dari rumah, bukan dari luar. Kesabaranku adalah bentuk investasiku untuk keluarga kecil yang kita impikan. Aku bertahan karena aku percaya bahwa prosesmu di pondok dan kedewasaan yang kita pupuk akan mengubahmu menjadi versi terbaik bagi dirimu sendiri dan bagi kita.</p>
+
+            <h2>Menenun Mimpi Menjadi Keluarga Kecil</h2>
+            <p>Kini, setiap kali aku melihat ekspresi gemasmu dan senyuman manis yang terpancar dari wajahmu, aku tahu mengapa aku berjuang sekeras ini. Aku dan kamu adalah dua insan yang sedang belajar; aku belajar untuk terus bersabar dan tulus, dan kamu belajar untuk menjaga amanah cinta ini. Tujuan kita hanya satu: membangun keluarga kecil yang kita impikan, tempat di mana tidak ada lagi pencarian validasi dari luar karena kita sudah saling mencukupi. Selamat ulang tahun untukmu, perempuanku yang luar biasa. Terima kasih telah hadir dan memberikan warna pada duniaku yang sebelumnya hanya hitam putih. Mari kita jalani perjalanan ini, sekarang hingga nanti kita tua.</p>
+            <figure>
+                <img src="/assets/kita1.jpg" class="interactive-img">
+            </figure>
+        </article>
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

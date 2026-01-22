@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ada Kado Untukmu</title>
+    <link rel="stylesheet" href="welcome-style.css">
+</head>
+<body>
+
+    <div class="welcome-container" id="welcomeScreen">
+        <div class="gift-box" id="giftBox">
+            <div class="lid"></div>
+            <div class="box"></div>
+            <div class="ribbon"></div>
+        </div>
+        <p class="instruction">Klik kado untuk membukanya...</p>
+        
+        <div class="newspaper-flyer" id="newspaperFlyer">
+            <div class="flyer-content">
+                <h1>The Love Chronicle</h1>
+                <p>Koran Untuk: Aida Muflihah Azzahra</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const giftBox = document.getElementById('giftBox');
+        const welcomeScreen = document.getElementById('welcomeScreen');
+        const flyer = document.getElementById('newspaperFlyer');
+
+        giftBox.addEventListener('click', () => {
+            // Jalankan animasi buka
+            giftBox.classList.add('open');
+            
+            // Munculkan koran terbang
+            setTimeout(() => {
+                flyer.classList.add('show');
+            }, 500);
+
+            // Pindah ke halaman index setelah animasi selesai
+            setTimeout(() => {
+                welcomeScreen.style.opacity = '0';
+                setTimeout(() => {
+                    window.location.href = 'main.html';
+                }, 1000);
+            }, 5000);
+        });
+    </script>
+</body>
+</html>

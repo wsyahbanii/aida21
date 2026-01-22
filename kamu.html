@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kamu - The Love Chronicle</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* CSS Tambahan Khusus Halaman Ini (Inline agar rapi) */
+        
+        /* Gaya untuk Quiz/Fakta (Details & Summary) */
+        details {
+            background: #eaddcf;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid var(--text-ink);
+            cursor: pointer;
+        }
+        
+        summary {
+            font-weight: bold;
+            font-family: 'Playfair Display', serif;
+            list-style: none; /* Hilangkan panah default */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        summary::after {
+            content: '+'; 
+            font-size: 1.2rem;
+        }
+
+        details[open] summary::after {
+            content: '-';
+        }
+
+        details p {
+            margin: 10px 0 0 0;
+            font-style: italic;
+            border-top: 1px dashed var(--text-ink);
+            padding-top: 5px;
+        }
+
+        /* Gaya Kutipan Koran */
+        .quote-box {
+            border-top: 2px solid var(--text-ink);
+            border-bottom: 2px solid var(--text-ink);
+            padding: 15px;
+            margin: 20px 0;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            font-family: 'Playfair Display', serif;
+        }
+        .btn-newspaper {
+            display: inline-block;
+            background-color: var(--text-ink);
+            color: var(--bg-paper);
+            padding: 12px 25px;
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+            font-weight: bold;
+            border: 2px solid var(--text-ink);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+        .btn-newspaper:hover {
+            background-color: transparent; /* Jadi transparan saat di-hover */
+            color: var(--accent); /* Huruf jadi merah */
+            border-color: var(--accent);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 class="masthead">Birthday Girl</h1>
+        <div class="date-line">
+            <a href="main.html" class="story-link">← Kembali ke Halaman Depan</a>
+            <span>Tokoh Minggu Ini</span>
+        </div>
+    </header>
+
+    <main class="newspaper-content">
+        
+<article>
+    <h2>Aida Muflihah Azzahra</h2>
+    <figure>
+        <img src="/assets/kamu1.png" alt="Pasangan" class="interactive-img">
+    </figure>
+    
+    <p><span class="drop-cap">A</span>ida adalah sebuah lagu yang membuat suasana menjadi tenang, sebuah lukisan pemandangan yang begitu menawan, sebuah bidadari yang turun dari kayangan. Wanita dengan kelahiran 1 Februari 2005 yang wajahnya selalu menyimpan ketenangan yang luar biasa—tipe penampilan yang begitu tentram, seolah-olah ia membawa udara sejuk ke mana pun ia pergi. Hanya dengan melihat senyumannya yang indah, riuh rendah di kepalaku mendadak reda, berganti menjadi sebuah ambisi tulus: keinginan untuk terus tumbuh dan menjadi pribadi yang jauh lebih baik setiap harinya.</p>
+
+    <div style="text-align: center; margin-bottom: 20px; border-top: 1px double #000; border-bottom: 1px double #000; padding: 10px 0;">
+        <p style="margin:0 0 10px 0; font-style:italic; font-size:0.9rem;">Lihat koleksi foto cantiknya di sini:</p>
+        <a href="album-kamu.html" class="btn-newspaper">Buka Album Eksklusif</a>
+    </div>
+    <p>Halaman ini didedikasikan sepenuhnya untuk membahas detail-detail kecil tentang dirinya.</p>
+</article>
+
+        <article>
+            <h2>Fakta & Rahasia</h2>
+            <p>Seberapa kenal aku dengan kamu?</p>
+
+            <div class="quiz-section">
+                <details>
+                    <summary>Apa makanan mood booster-nya?</summary>
+                    <p>Seblak level pedas (tapi gaboleeee banyak-banyak)</p>
+                </details>
+
+                <details>
+                    <summary>Warna favoritnya?</summary>
+                    <p>Warna favoritnya nama band dari lagi "Cinta Dalam Hati"</p>
+                </details>
+
+                <details>
+                    <summary>Lagu yang sering diputar?</summary>
+                    <p>Apa ay??? lagunya Dimas M kali ya</p>
+                </details>
+                
+                <details>
+                    <summary>Hal kecil yang dia suka?</summary>
+                    <p>Diperlakukan manis, diberi kabar, dan masih banyak lagi.</p>
+                </details>
+            </div>
+        </article>
+
+        <article>
+            <h2>Editorial Cinta</h2>
+            <div class="quote-box">
+                "Mencintaimu adalah berita paling bahagia yang pernah aku tulis."
+            </div>
+
+            <p>Kenangan kita mungkin sering terabadikan dalam strip-strip kecil di bilik Photobox, tempat di mana tawamu yang paling lepas terekam abadi. Di sana, aku menyadari bahwa bahagia tidak butuh kemewahan, cukup satu bingkai bersamamu. Di mata orang lain, mungkin kamu hanyalah satu orang yang berlalu di tengah keramaian. Namun, di balik lensa mataku, setiap inci dari duniamu adalah pusat dari gravitasiku. Terima kasih, Carrots, sudah bersedia menjadi berita utama yang paling indah dan menenangkan dalam koran kehidupanku.</p>
+
+            <figure>
+                <img src="/assets/kamu2.png" class="interactive-img" style="height: 200px; object-fit: cover;">
+                <figcaption>Kenangan manis.(HEHE maap cantik banget si)</figcaption>
+            </figure>
+
+            <p>Jangan lupa untuk mengecek halaman <a href="kita.html" class="story-link">Hubungan</a> untuk melihat skor permainan kita!</p>
+        </article>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
