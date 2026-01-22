@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const playBtn = document.getElementById('playBtn','albumcover');
     if (playBtn) {
-        const music = new Audio("/assets/Sekarang Hingga Nanti Kita Tua - Dimas M.mp3");
+        const music = new Audio("assets/Sekarang Hingga Nanti Kita Tua - Dimas M.mp3");
         let isPlaying = false;
 
         playBtn.addEventListener('click', () => {
@@ -250,4 +250,5 @@ function cekTebakan() {
         msg.innerText = "Kegedean ay..";
         msg.style.color = "var(--accent)";
     }
+
 }
