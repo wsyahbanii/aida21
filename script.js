@@ -1,78 +1,75 @@
 /* script.js */
 
-document.addEventListener('DOMContentLoaded', () => {
-    // ... kode yang lain tetap ada (reveal gambar, dll) ...
 
+/* ==========================================
+   1. LOGIKA MUSIK (GLOBAL)
+   ========================================== */
+function toggleMusic() {
+    const audio = document.getElementById('myAudio');
+    const btn = document.getElementById('playBtn');
+    const status = document.getElementById('statusMusik');
+
+    if (!audio) return;
+
+    if (audio.paused) {
+        audio.play().then(() => {
+            btn.innerHTML = "❚❚";
+            status.innerText = "Sedang memutar: Sekarang Hingga Nanti Kita Tua";
+        }).catch(error => {
+            console.error("Gagal memutar:", error);
+            status.innerText = "Klik sekali lagi untuk memutar!";
+        });
+    } else {
+        audio.pause();
+        btn.innerHTML = "▶";
+        status.innerText = "Musik dihentikan";
+    }
+}
+
+/* ==========================================
+   2. LOGIKA OTOMATIS (SAAT HALAMAN DIMUAT)
+   ========================================== */
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // --- Logika Gambar Berubah Warna ---
+    const images = document.querySelectorAll('.interactive-img');
+    images.forEach(img => {
+        img.addEventListener('click', () => {
+            img.classList.toggle('reveal');
+        });
+    });
+
+    // --- Logika Suara Dino (Mengaum) ---
     const sound = document.getElementById('audioDino');
     const btn1 = document.getElementById('btnDino1');
     const btn2 = document.getElementById('btnDino2');
     const statusText = document.getElementById('statusAudio');
 
     function mngaum(e) {
-        // Mencegah link tidak sengaja (jika ada)
         if(e) e.preventDefault();
+        if(!sound) return;
 
-        // 1. Mainkan Suara
         sound.currentTime = 0;
-        const playPromise = sound.play();
+        sound.play().catch(() => {
+            if(statusText) statusText.innerText = "Klik lagi untuk suara!";
+        });
 
-        if (playPromise !== undefined) {
-            playPromise.then(() => {
-                console.log("Suara berhasil diputar");
-            }).catch(error => {
-                console.error("Gagal putar suara: ", error);
-                statusText.innerText = "Klik sekali lagi untuk aktivasi suara browser!";
-            });
-        }
-
-        // 2. Efek Visual
         const target = e.currentTarget;
         target.classList.add('active');
         setTimeout(() => {
             target.classList.remove('active');
-            statusText.innerText = "";
+            if(statusText) statusText.innerText = "";
         }, 1000);
     }
 
-    // Pasang event listener jika tombol ada di halaman tersebut
     if (btn1 && btn2) {
         btn1.addEventListener('click', mngaum);
         btn2.addEventListener('click', mngaum);
-        
-        // Tambahan untuk mobile agar lebih responsif
-        btn1.addEventListener('touchstart', () => {}, {passive: true});
-        btn2.addEventListener('touchstart', () => {}, {passive: true});
-    }
-    
-    // 1. Logika Gambar Berubah Warna
-    const images = document.querySelectorAll('.interactive-img');
-    
-    images.forEach(img => {
-        img.addEventListener('click', () => {
-            // Toggle kelas 'reveal' untuk mengubah grayscale jadi warna
-            img.classList.toggle('reveal');
-        });
-    });
-
-    const playBtn = document.getElementById('playBtn','albumcover');
-    if (playBtn) {
-        const music = new Audio("assets/sekarang.mp3");
-        let isPlaying = false;
-
-        playBtn.addEventListener('click', () => {
-            if (!isPlaying) {
-                music.play();
-                playBtn.textContent = "❚❚";
-            } else {
-                music.pause();
-                playBtn.textContent = "▶";
-            }
-            isPlaying = !isPlaying;
-        });
     }
 });
-
-    /* --- LOGIKA GAME SUIT --- */
+/* ==========================================
+   3. LOGIKA GAME SUIT (SAAT HALAMAN DIMUAT)
+   ========================================== */
     let skorAku = 0;
     let skorKamu = 0;
 
@@ -119,9 +116,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (nama === 'kertas') return '✋';
         return '❓';
         }
-    /* --- LOGIKA TAMBAHAN GAME --- */
-
-// 1. GANTI TAB
+/* ==========================================
+   4. LOGIKA MENU GAME (SAAT HALAMAN DIMUAT)
+   ========================================== */
 function gantiGame(gameId, tabElement) {
     document.querySelectorAll('.game-content').forEach(g => g.style.display = 'none');
     document.getElementById('game-' + gameId).style.display = 'block';
@@ -131,6 +128,9 @@ function gantiGame(gameId, tabElement) {
     if(gameId === 'cari') resetWordSearch(); // Init grid saat tab dibuka
 }
 
+/* ==========================================
+   5. LOGIKA GAME CARI KATA (SAAT HALAMAN DIMUAT)
+   ========================================== */
 let selectedWord = "";
 let shuffledTargets = [];
 let currentIndex = 0;
@@ -232,8 +232,9 @@ function resetSelection() {
         .forEach(el => el.classList.remove("found"));
 }
 
-
-// 3. LOGIKA TEBAK ANGKA
+/* ==========================================
+   6. LOGIKA GAME TEBAK (SAAT HALAMAN DIMUAT)
+   ========================================== */
 let angkaRahasia = Math.floor(Math.random() * 20) + 1;
 function cekTebakan() {
     const input = document.getElementById('inputAngka').value;
@@ -251,4 +252,3 @@ function cekTebakan() {
         msg.style.color = "var(--accent)";
     }
 }
-
